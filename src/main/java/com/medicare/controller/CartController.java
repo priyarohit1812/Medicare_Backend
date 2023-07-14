@@ -59,7 +59,7 @@ public class CartController {
 			cart = this.cartService.saveCart(cart);
 			if (cart.getCartId() > 0) {
 				user.setCart(cart);
-				user = this.userService.saveUser(user);
+				user = this.userService.updateUser(user);
 			}
 		}
 		List<OrderItem> orderItems = this.orderItemService.fetchOrderItemsByCart(cart.getCartId());

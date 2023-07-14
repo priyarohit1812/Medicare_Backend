@@ -83,7 +83,7 @@ public class PurchaseOrderController {
 			return ResponseEntity.internalServerError().body(response);
 		} else {
 			user.setCart(null);
-			this.userService.saveUser(user);
+			this.userService.updateUser(user);
 			PurchaseOrderResponse orderResponse = new PurchaseOrderResponse(purchaseOrder, orderItems);
 			response.setIsError(false);
 			response.setMessage("Order placed successfully!");

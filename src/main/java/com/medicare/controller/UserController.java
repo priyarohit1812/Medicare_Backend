@@ -68,10 +68,10 @@ public class UserController {
 		
 		User savedUser;
 		
-		if (user.getPassword() == null ||user.getPassword().isBlank()) {
-			savedUser = this.userService.updateUser(user);
-		} else {
+		if (user.getPassword() != null && !user.getPassword().isBlank()) {
 			savedUser = this.userService.saveUser(user);
+		} else {
+			savedUser = this.userService.updateUser(user);
 		}
 		
 		if (savedUser == null) {
