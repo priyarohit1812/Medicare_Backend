@@ -40,7 +40,8 @@ public class PurchaseOrder {
 	@JoinColumn(name = "user_id_fk", nullable = false)
 	private User user;
 	
-	
+	@NotNull(message = "Address reference is mandatory")
+//  @OneToOne(fetch = FetchType.EAGER)
 	@OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH })
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "purchaseOrder", "user"})	
 	@JoinColumn(name = "cart_id_fk")
@@ -54,6 +55,7 @@ public class PurchaseOrder {
 
 	@NotNull(message = "Payment reference is mandatory")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "purchaseOrder"})	
+	//@OneToOne(fetch = FetchType.EAGER)
 	@OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH })
 	@JoinColumn(name = "payment_id_fk")
 	private Payment payment;

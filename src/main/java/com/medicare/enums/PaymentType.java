@@ -1,7 +1,7 @@
 package com.medicare.enums;
 
 public enum PaymentType {
-	CreditCard(1), DebitCard(2), CashOnDelivery(3);
+	CreditCard(0), CashOnDelivery(1);
 
 	public final int type;
 	
